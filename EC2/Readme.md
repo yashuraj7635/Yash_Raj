@@ -1,42 +1,48 @@
+# ☁️ AWS EC2 Resume Hosting Project
 
-PS C:\Users\rajha\Downloads> ssh -i "yash_key.pem" ec2-user@ec2-13-61-190-206.eu-north-1.compute.amazonaws.com
-   ,     #_
-   ~\_  ####_        Amazon Linux 2023
-  ~~  \_#####\
-  ~~     \###|
-  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
-   ~~       V~' '->
-    ~~~         /
-      ~~._.   _/
-         _/ _/
-       _/m/'
-Last login: Wed Dec  3 12:36:04 2025 from 103.157.169.68
-[ec2-user@ip-172-31-30-206 ~]$ sudo yum update -y
-Last metadata expiration check: 0:15:16 ago on Wed Dec  3 12:37:29 2025.
-Dependencies resolved.
-Nothing to do.
-Complete!
-[ec2-user@ip-172-31-30-206 ~]$ sudo dnf update -y
-Last metadata expiration check: 0:15:53 ago on Wed Dec  3 12:37:29 2025.
-Dependencies resolved.
-Nothing to do.
-Complete!
-[ec2-user@ip-172-31-30-206 ~]$ sudo dnf install nginx -y
-Last metadata expiration check: 0:16:16 ago on Wed Dec  3 12:37:29 2025.
-Package nginx-1:1.28.0-1.amzn2023.0.2.x86_64 is already installed.
-Dependencies resolved.
-Nothing to do.
-Complete!
-[ec2-user@ip-172-31-30-206 ~]$ sudo systemctl start nginx
-sudo systemctl enable nginx
-[ec2-user@ip-172-31-30-206 ~]$ sudo systemctl enable nginx
-[ec2-user@ip-172-31-30-206 ~]$ ^C
-[ec2-user@ip-172-31-30-206 ~]$ ^C
-[ec2-user@ip-172-31-30-206 ~]$ sudo nano /usr/share/nginx/html/index.html
-[ec2-user@ip-172-31-30-206 ~]$ systemctl restart nginx
-Failed to restart nginx.service: Access denied
-See system logs and 'systemctl status nginx.service' for details.
-[ec2-user@ip-172-31-30-206 ~]$ sudo nano index.html
-[ec2-user@ip-172-31-30-206 ~]$ sudo systemctl restart nginx
-[ec2-user@ip-172-31-30-206 ~]$ 
-convert this in a readme file 
+## 📌 Project Description
+This project demonstrates hosting a **personal resume** on an **Amazon EC2 instance** using **Nginx** and **Amazon Linux 2023**.  
+It focuses on EC2 setup, Linux server administration, and deploying static HTML content on AWS.
+
+## ☁️ AWS Services Used
+- Amazon EC2
+- Amazon VPC
+- Security Groups
+- Amazon Linux 2023
+
+## 🛠️ Tools & Technologies
+- Linux (Amazon Linux 2023)
+- Nginx Web Server
+- SSH
+- HTML
+- Git & GitHub
+
+## 🚀 Project Implementation
+
+### **1️⃣ Launch EC2 Instance**
+- Created an EC2 instance using Amazon Linux 2023
+- Configured a key pair for secure SSH access
+- Allowed inbound traffic on **22 (SSH)** and **80 (HTTP)**
+
+### **2️⃣ Connect to EC2 via SSH**
+- bash
+- ssh -i "yash_key.pem" ec2-user@<EC2-Public-IP>
+
+### **3️⃣ Update System Packages
+- sudo dnf update -y
+
+### 4️⃣ Install and Start Nginx
+- sudo dnf install nginx -y
+- sudo systemctl start nginx
+- sudo systemctl enable nginx
+
+### 5️⃣ Host Resume on EC2
+- sudo nano /usr/share/nginx/html/index.html
+- sudo systemctl restart nginx
+
+### 🌐 Output
+
+-Resume successfully hosted on Amazon EC2
+-Accessible via browser using:
+
+-http://<EC2-Public-IP>
